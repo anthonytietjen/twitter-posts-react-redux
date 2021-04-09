@@ -7,7 +7,9 @@ export const SearchPageView = () => (
   <StyledSearchPage
     data-testid="search_page_view"
   >
-    Search Page
+    <h1 data-id="text_tweet_feed">
+      Tweet Feed
+    </h1>
     <SearchBox />
     <SearchFilters />
     <SearchResults />

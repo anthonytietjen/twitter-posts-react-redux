@@ -18,7 +18,7 @@ export const StyledHashTag = styled.div`
 
 export const HashTag = ({ text }) => (
   <StyledHashTag
-    data-testid="text_hashtag"
+    data-testid={`text_${text}`}
   >
     {text}
   </StyledHashTag>

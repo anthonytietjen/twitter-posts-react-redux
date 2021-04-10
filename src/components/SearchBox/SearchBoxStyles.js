@@ -7,14 +7,16 @@ export const StyledSearchBox = styled.div`
   .search-icon-contaner{
     position:relative;
 
-    span{
+    svg{
       position:absolute;
-      left: 15px;
+      top: 8px;
+      left: 10px;
+      color: #999;
     }
   }
 
   input {
-    padding: 8px 8px 8px 28px;
+    padding: 8px 8px 8px 32px;
     border: 1px solid silver;
     display: block;
     border-radius: 0;

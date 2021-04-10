@@ -1,6 +1,8 @@
 import { useQuery } from 'react-query';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 import { StyledSearchBox } from './SearchBoxStyles';
 import { fetchTweets } from '../../api/api';
 import { tweetsFetched } from '../../actions/searchActions';
@@ -43,10 +45,10 @@ export const SearchBox = () => {
     >
       <div className="search-icon-contaner">
         {!isFetching && (
-          <span>S</span>
+          <FontAwesomeIcon icon={faSearch} />
         )}
         {isFetching && (
-          <span>L</span>
+          <FontAwesomeIcon icon={faCircleNotch} spin />
         )}
       </div>
       <input

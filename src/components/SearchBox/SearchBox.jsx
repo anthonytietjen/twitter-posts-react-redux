@@ -37,8 +37,6 @@ export const SearchBox = () => {
     }, debounceTimeout);
   };
 
-  console.log({ data, isFetching, refetch });
-
   return (
     <StyledSearchBox
       data-testid="search_box_view"

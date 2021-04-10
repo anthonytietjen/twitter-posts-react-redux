@@ -1,0 +1,11 @@
+// To run these sample requests, install
+// the "humao.rest-client" plugin for Visual Studio Code
+
+// Twitter API reference:
+// https://developer.twitter.com/en/docs/twitter-api/v1/tweets/search/api-reference/get-search-tweets
+
+GET https://api.twitter.com/1.1/search/tweets.json?q=hello&result_type=popular&count=5
+Authorization: Bearer {{$dotenv BEARER_TOKEN}}
+
+
+

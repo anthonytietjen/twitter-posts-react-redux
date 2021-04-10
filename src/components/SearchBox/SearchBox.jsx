@@ -1,11 +1,20 @@
 import { useState } from 'react';
 import { StyledSearchBox } from './SearchBoxStyles';
 
+const debounceTimeout = 1000; // milliseconds
+let debounceTimer;
+
 export const SearchBox = () => {
   const [searchTerms, setSearchTerms] = useState('');
 
   const handleChange = (e) => {
-    setSearchTerms(e.target.value);
+    const searchValue = e.target.value;
+    clearTimeout(debounceTimer);
+    setSearchTerms(searchValue);
+
+    debounceTimer = setTimeout(() => {
+      //TODO: Perform search
+    }, debounceTimeout);
   };
 
   return (

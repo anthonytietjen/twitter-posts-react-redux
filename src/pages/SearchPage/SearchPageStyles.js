@@ -11,10 +11,14 @@ export const StyledSearchPage = styled.div`
     display: flex;
     flex-direction: row;
 
-    > div{
+    .left-column{
       flex-direction: column;
-      flex: 1;
       margin-right: 15px;
+      flex: 1;
+    }
+
+    .right-column{
+      min-width: 250px;
     }
   }
 

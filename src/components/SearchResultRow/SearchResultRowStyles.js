@@ -36,6 +36,11 @@ export const StyledSearchResultRow = styled.div`
 
     .text-container{
       padding-bottom: 10px;
+
+      .tweet-link{
+        color: red;
+        margin-left: 10px;
+      }
     }
 
     .hashtags-container{

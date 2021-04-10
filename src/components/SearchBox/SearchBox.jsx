@@ -1,12 +1,15 @@
 import { useQuery } from 'react-query';
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { StyledSearchBox } from './SearchBoxStyles';
 import { fetchTweets } from '../../api/api';
+import { tweetsFetched } from '../../actions/searchActions';
 
 const debounceTimeout = 1000; // milliseconds
 let debounceTimer;
 
 export const SearchBox = () => {
+  const dispatch = useDispatch();
   const [searchTerms, setSearchTerms] = useState('');
 
   const { data, isFetching, refetch } = useQuery(
@@ -20,8 +23,7 @@ export const SearchBox = () => {
 
   useEffect(() => {
     if (data) {
-      // TODO dispatch the data
-      console.log({ data });
+      dispatch(tweetsFetched(data));
     }
   }, [data]);
 

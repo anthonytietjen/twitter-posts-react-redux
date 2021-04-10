@@ -11,6 +11,11 @@
           {
             "text": "tag2"
           }
+        ],
+        "urls": [
+          {
+            "url": "https://t.co/tweet1"
+          }
         ]
       },
       "user": {
@@ -30,6 +35,11 @@
           },
           {
             "text": "tag4"
+          }
+        ],
+        "urls": [
+          {
+            "url": "https://t.co/tweet1"
           }
         ]
       },

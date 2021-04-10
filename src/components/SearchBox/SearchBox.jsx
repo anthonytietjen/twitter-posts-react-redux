@@ -8,12 +8,12 @@ export const SearchBox = () => {
   const [searchTerms, setSearchTerms] = useState('');
 
   const handleChange = (e) => {
-    const searchValue = e.target.value;
     clearTimeout(debounceTimer);
+    const searchValue = e.target.value;
     setSearchTerms(searchValue);
 
     debounceTimer = setTimeout(() => {
-      //TODO: Perform search
+      // TODO: Perform search
     }, debounceTimeout);
   };
 

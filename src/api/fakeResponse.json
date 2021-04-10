@@ -1,0 +1,35 @@
+{
+  "statuses": [
+    {
+      "id": "1",
+      "text": "Hello 1",
+      "entities": {
+        "hashtags": [
+          "tag1",
+          "tag2"
+        ]
+      },
+      "user": {
+        "url": "https://t.co/user1",
+        "screen_name": "User1"
+      }
+    },
+    {
+      "id": "2",
+      "text": "Hello 2",
+      "entities": {
+        "hashtags": [
+          "tag3",
+          "tag4"
+        ]
+      },
+      "user": {
+        "url": "https://t.co/user1",
+        "screen_name": "User2"
+      }
+    }
+  ],
+  "search_metadata": {
+    "next_results": "?max_id="
+  }
+}

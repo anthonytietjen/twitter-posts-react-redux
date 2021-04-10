@@ -1,7 +1,10 @@
 import { TWEETS_FETCHED } from '../actionTypes/actionTypes';
 
 const initialState = {
-  tweets: [],
+  tweets: {
+    statuses: [],
+    search_metadata: undefined,
+  },
 };
 
 export const searchReducer = (state = initialState, action) => {

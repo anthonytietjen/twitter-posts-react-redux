@@ -4,6 +4,6 @@ export const SearchResultRow = ({ tweet }) => (
   <StyledSearchResultRow
     data-testid="search_result_row"
   >
-    {tweet.hi}
+    {tweet.text}
   </StyledSearchResultRow>
 );

@@ -4,6 +4,7 @@ export const StyledSearchResultRow = styled.div`
   display: flex;
   flex-direction: row;
   background-color: #FFF;
+  
 
   &.alternate-background{
     background-color: #F8F9F9;
@@ -27,7 +28,7 @@ export const StyledSearchResultRow = styled.div`
     flex: 1;
     display: flex:
     flex-direction: column;
-    margin: 12px 12px 12px 6px;
+    margin: 12px 12px 5px 6px;
 
     .screen-name-container{
       padding-bottom: 10px;

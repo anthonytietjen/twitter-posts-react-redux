@@ -41,9 +41,13 @@ export const SearchResultRow = ({ tweet, isAlternateRow }) => {
             {tweetUrl}
           </a>
         </div>
-        <div className="hashtags-container">
-          <HashTag key="1" text="hi" />
-        </div>
+        {tweet.entities.hashtags.length > 0 && (
+          <div className="hashtags-container">
+            {tweet.entities.hashtags.map(hashTag => (
+              <HashTag key={hashTag.text} text={hashTag.text} />
+            ))}
+          </div>
+        )}
       </div>
     </StyledSearchResultRow>
   );

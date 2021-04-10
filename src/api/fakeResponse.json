@@ -5,8 +5,12 @@
       "text": "Hello 1",
       "entities": {
         "hashtags": [
-          "tag1",
-          "tag2"
+          {
+            "text": "tag1"
+          },
+          {
+            "text": "tag2"
+          }
         ]
       },
       "user": {
@@ -19,8 +23,12 @@
       "text": "Hello 2",
       "entities": {
         "hashtags": [
-          "tag3",
-          "tag4"
+          {
+            "text": "tag3"
+          },
+          {
+            "text": "tag4"
+          }
         ]
       },
       "user": {

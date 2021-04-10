@@ -1,9 +1,11 @@
+import { useSelector } from 'react-redux';
+import { hashTagsSelector } from '../../selectors/searchSelectors';
 import { Card } from '../Card/Card';
 import { HashTag } from '../HashTag/HashTag';
 import { StyledSearchFilters } from './SearchFiltersStyles';
 
 export const SearchFilters = () => {
-  const hashTags = ['#Hello', '#World'];
+  const { hashTags } = useSelector(hashTagsSelector);
 
   return (
     <StyledSearchFilters

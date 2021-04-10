@@ -20,6 +20,7 @@ export const HashTag = ({ text }) => (
   <StyledHashTag
     data-testid={`text_${text}`}
   >
+    {'#'}
     {text}
   </StyledHashTag>
 );

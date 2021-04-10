@@ -1,10 +1,9 @@
-import { getTextFromTweetText, getUrlFromTweetText } from '../../utils/tweetUtils';
 import { HashTag } from '../HashTag/HashTag';
 import { StyledSearchResultRow } from './SearchResultRowStyles';
 
 export const SearchResultRow = ({ tweet, isAlternateRow }) => {
-  const tweetTextWithoutUrl = getTextFromTweetText(tweet.text);
-  const tweetUrl = getUrlFromTweetText(tweet.text);
+  const tweetUrl = tweet.entities.urls[0].url;
+  const tweetTextWithoutUrl = tweet.text.substr(0, tweet.text.indexOf(tweetUrl) - 1);
 
   return (
     <StyledSearchResultRow

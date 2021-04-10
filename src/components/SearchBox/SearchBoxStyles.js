@@ -1,8 +1,13 @@
 import styled from 'styled-components';
+import { maxWidth } from '../../utils/utils';
 
 export const StyledSearchBox = styled.div`
   display: block;
   margin-bottom: 20px;
+
+  @media (max-width: ${maxWidth - 1}px) {
+    padding: 0 15px;
+  }
 
   .search-icon-contaner{
     position:relative;

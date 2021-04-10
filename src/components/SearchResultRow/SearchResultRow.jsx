@@ -30,7 +30,9 @@ export const SearchResultRow = ({ tweet }) => {
           </a>
         </div>
         <div className="text-container">
-          {tweetTextWithoutUrl}
+          <span className="text">
+            {tweetTextWithoutUrl}
+          </span>
           <a
             className="tweet-link"
             href={tweetUrl}

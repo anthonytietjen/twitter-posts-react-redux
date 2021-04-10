@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { maxWidth } from '../../utils/utils';
 
 export const StyledSearchPage = styled.div`
   .desktop {
-    max-width: 768px;
-    padding-top: 15px;
+    max-width: ${maxWidth}px;
+    padding: 30px 0;
     margin: auto;
   }
 
@@ -13,12 +14,12 @@ export const StyledSearchPage = styled.div`
 
     .left-column{
       flex-direction: column;
-      margin-right: 15px;
+      margin-right: 20px;
       flex: 1;
     }
 
     .right-column{
-      min-width: 250px;
+      width: 250px;
     }
   }
 

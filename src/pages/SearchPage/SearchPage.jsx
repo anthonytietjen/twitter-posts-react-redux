@@ -2,10 +2,11 @@ import MediaQuery, { useMediaQuery } from 'react-responsive';
 import { SearchBox } from '../../components/SearchBox/SearchBox';
 import { SearchFilters } from '../../components/SearchFilters/SearchFilters';
 import { SearchResults } from '../../components/SearchResults/SearchResults';
+import { maxWidth } from '../../utils/utils';
 import { StyledSearchPage } from './SearchPageStyles';
 
 export const SearchPage = () => {
-  const isDesktopView = useMediaQuery({ minWidth: 769 });
+  const isDesktopView = useMediaQuery({ minWidth: maxWidth });
 
   return (
     <StyledSearchPage
@@ -16,7 +17,7 @@ export const SearchPage = () => {
           Tweet Feed
         </h1>
 
-        <MediaQuery minWidth={769}>
+        <MediaQuery minWidth={maxWidth}>
           <div className="desktop-view">
             <div className="left-column">
               <SearchBox />
@@ -28,7 +29,7 @@ export const SearchPage = () => {
           </div>
         </MediaQuery>
 
-        <MediaQuery maxWidth={768}>
+        <MediaQuery maxWidth={maxWidth - 1}>
           <div className="mobile-view">
             <SearchBox />
             <SearchFilters />

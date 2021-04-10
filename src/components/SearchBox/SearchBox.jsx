@@ -54,6 +54,7 @@ export const SearchBox = () => {
       <input
         data-testid="input_search_terms"
         value={searchTerms}
+        placeholder="Search by keyword"
         onChange={handleChange}
       />
     </StyledSearchBox>

@@ -13,6 +13,7 @@ export const StyledSearchResults = styled.div`
   justify-content: center;
 
   a{
+    color: #3C7DB7;
     text-decoration: none;
   }
 }

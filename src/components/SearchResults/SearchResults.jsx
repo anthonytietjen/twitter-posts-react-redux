@@ -7,6 +7,10 @@ import { StyledSearchResults } from './SearchResultsStyles';
 export const SearchResults = () => {
   const { tweets } = useSelector(tweetsSelector);
 
+  if (tweets.length === 0) {
+    return null;
+  }
+
   return (
     <StyledSearchResults
       data-testid="search_results_view"

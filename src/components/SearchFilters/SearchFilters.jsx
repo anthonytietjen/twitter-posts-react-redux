@@ -1,11 +1,16 @@
 import { useSelector } from 'react-redux';
-import { hashTagsSelector } from '../../selectors/searchSelectors';
+import { hashTagsSelector, tweetsSelector } from '../../selectors/searchSelectors';
 import { Card } from '../Card/Card';
 import { HashTag } from '../HashTag/HashTag';
 import { StyledSearchFilters } from './SearchFiltersStyles';
 
 export const SearchFilters = () => {
+  const { tweets } = useSelector(tweetsSelector);
   const { hashTags } = useSelector(hashTagsSelector);
+
+  if (tweets.length === 0) {
+    return null;
+  }
 
   return (
     <StyledSearchFilters

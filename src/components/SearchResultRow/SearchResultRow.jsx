@@ -2,13 +2,14 @@ import { getTextFromTweetText, getUrlFromTweetText } from '../../utils/tweetUtil
 import { HashTag } from '../HashTag/HashTag';
 import { StyledSearchResultRow } from './SearchResultRowStyles';
 
-export const SearchResultRow = ({ tweet }) => {
+export const SearchResultRow = ({ tweet, isAlternateRow }) => {
   const tweetTextWithoutUrl = getTextFromTweetText(tweet.text);
   const tweetUrl = getUrlFromTweetText(tweet.text);
 
   return (
     <StyledSearchResultRow
       data-testid="search_result_row"
+      className={(isAlternateRow) ? 'alternate-background' : ''}
     >
       <div
         className="profile-image"

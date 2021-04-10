@@ -17,8 +17,12 @@ export const SearchResults = () => {
     >
       <Card>
         <div className="results-list">
-          {tweets.map(tweet => (
-            <SearchResultRow key={tweet.id} tweet={tweet} />
+          {tweets.map((tweet, index) => (
+            <SearchResultRow
+              key={tweet.id}
+              tweet={tweet}
+              isAlternateRow={index % 2 === 1}
+            />
           ))}
         </div>
         <div className="results-footer">

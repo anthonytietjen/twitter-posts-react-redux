@@ -3,6 +3,11 @@ import styled from 'styled-components';
 export const StyledSearchResultRow = styled.div`
   display: flex;
   flex-direction: row;
+  background-color: #FFF;
+
+  &.alternate-background{
+    background-color: #F8F9F9;
+  }
 
   .profile-image{
     margin: 0;
@@ -10,7 +15,7 @@ export const StyledSearchResultRow = styled.div`
     width: 48px;
     height: 48px;
     overflow: hidden;
-    margin: 12px;
+    margin: 12px 6px 12px 12px;
 
     .img{
       width: 48px;
@@ -22,7 +27,7 @@ export const StyledSearchResultRow = styled.div`
     flex: 1;
     display: flex:
     flex-direction: column;
-    margin: 12px;
+    margin: 12px 12px 12px 6px;
 
     .screen-name-container{
       padding-bottom: 10px;

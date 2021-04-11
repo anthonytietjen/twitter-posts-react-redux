@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styled from 'styled-components';
 
 export const StyledCard = styled.div`
@@ -6,8 +7,8 @@ export const StyledCard = styled.div`
   border-radius: 4px;
 `;
 
-export const Card = ({ children }) => (
+export const Card = memo(({ children }) => (
   <StyledCard>
     {children}
   </StyledCard>
-);
+));

@@ -1,10 +1,11 @@
+import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { hashTagsSelector, tweetsSelector } from '../../selectors/searchSelectors';
 import { Card } from '../Card/Card';
 import { HashTag } from '../HashTag/HashTag';
 import { StyledSearchFilters } from './SearchFiltersStyles';
 
-export const SearchFilters = () => {
+export const SearchFilters = memo(() => {
   const { tweets } = useSelector(tweetsSelector);
   const { hashTags } = useSelector(hashTagsSelector);
 
@@ -35,4 +36,4 @@ export const SearchFilters = () => {
       </Card>
     </StyledSearchFilters>
   );
-};
+});

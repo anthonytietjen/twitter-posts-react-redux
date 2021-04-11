@@ -1,7 +1,8 @@
+import { memo } from 'react';
 import { HashTag } from '../HashTag/HashTag';
 import { StyledSearchResultRow } from './SearchResultRowStyles';
 
-export const SearchResultRow = ({ tweet, isAlternateRow }) => {
+export const SearchResultRow = memo(({ tweet, isAlternateRow }) => {
   const tweetUrl = tweet.text.lastIndexOf('https://t.co/') > -1
     ? tweet.text.substr(tweet.text.lastIndexOf('https://t.co/'))
     : '';
@@ -66,4 +67,4 @@ export const SearchResultRow = ({ tweet, isAlternateRow }) => {
       </div>
     </StyledSearchResultRow>
   );
-};
+});

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useQuery } from 'react-query';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,7 +10,7 @@ import { StyledSearchResults } from './SearchResultsStyles';
 import { fetchTweets } from '../../api/api';
 import { tweetsFetched } from '../../actions/searchActions';
 
-export const SearchResults = () => {
+export const SearchResults = memo(() => {
   const dispatch = useDispatch();
   const { searchTerms, tweets, nextResultId } = useSelector(tweetsSelector);
 
@@ -74,4 +74,4 @@ export const SearchResults = () => {
       </Card>
     </StyledSearchResults>
   );
-};
+});

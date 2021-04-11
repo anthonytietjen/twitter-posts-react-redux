@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import MediaQuery, { useMediaQuery } from 'react-responsive';
 import { SearchBox } from '../../components/SearchBox/SearchBox';
 import { SearchFilters } from '../../components/SearchFilters/SearchFilters';
@@ -5,7 +6,7 @@ import { SearchResults } from '../../components/SearchResults/SearchResults';
 import { maxWidth } from '../../utils/utils';
 import { StyledSearchPage } from './SearchPageStyles';
 
-export const SearchPage = () => {
+export const SearchPage = memo(() => {
   const isDesktopView = useMediaQuery({ minWidth: maxWidth });
 
   return (
@@ -39,4 +40,4 @@ export const SearchPage = () => {
       </div>
     </StyledSearchPage>
   );
-};
+});

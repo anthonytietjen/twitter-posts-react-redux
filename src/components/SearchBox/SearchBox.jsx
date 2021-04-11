@@ -1,5 +1,5 @@
+import { memo, useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
-import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
@@ -11,7 +11,7 @@ import { tweetsSelector } from '../../selectors/searchSelectors';
 const debounceTimeout = 1000; // milliseconds
 let debounceTimer;
 
-export const SearchBox = () => {
+export const SearchBox = memo(() => {
   const dispatch = useDispatch();
   const { searchTerms: defaultSearchTerms } = useSelector(tweetsSelector);
   const [searchTerms, setSearchTerms] = useState(defaultSearchTerms);
@@ -71,4 +71,4 @@ export const SearchBox = () => {
       />
     </StyledSearchBox>
   );
-};
+});

@@ -2,7 +2,9 @@ import { HashTag } from '../HashTag/HashTag';
 import { StyledSearchResultRow } from './SearchResultRowStyles';
 
 export const SearchResultRow = ({ tweet, isAlternateRow }) => {
-  const tweetUrl = tweet.entities.urls[0].url;
+  const tweetUrl = tweet.text.indexOf('https://t.co/') > -1
+    ? tweet.text.substr(tweet.text.indexOf('https://t.co/'))
+    : tweet.text;
   const tweetTextWithoutUrl = tweet.text.substr(0, tweet.text.indexOf(tweetUrl) - 1);
 
   return (

@@ -12,7 +12,7 @@ export const hashTagsSelector = (state) => {
     // Loop hashtags in statuses
     status.entities.hashtags.forEach(hashTag => {
       // Only add unique entries
-      if (hashTags.includes(hashTag.text)) {
+      if (!hashTags.includes(hashTag.text)) {
         hashTags.push(hashTag.text);
       }
     });

@@ -11,7 +11,7 @@ export const SearchResultRow = ({ tweet, isAlternateRow }) => {
 
   return (
     <StyledSearchResultRow
-      data-testid="search_result_row"
+      data-testid={`search_result_row_${tweet.id}`}
       className={(isAlternateRow) ? 'alternate-background' : ''}
     >
       <div
@@ -20,11 +20,16 @@ export const SearchResultRow = ({ tweet, isAlternateRow }) => {
           backgroundColor: `#${tweet.user.profile_background_color}`,
         }}
       >
-        <img src={tweet.user.profile_image_url_https} alt="asdf" />
+        <img
+          data-testid={`profile_image_${tweet.id}`}
+          src={tweet.user.profile_image_url_https}
+          alt="Profile Avatar"
+        />
       </div>
       <div className="content-area">
         <div className="screen-name-container">
           <a
+            data-testid={`screen_name_${tweet.id}`}
             className="screen-name-link"
             href={tweet.user.url}
             target="_blank"
@@ -34,11 +39,15 @@ export const SearchResultRow = ({ tweet, isAlternateRow }) => {
           </a>
         </div>
         <div className="text-container">
-          <span className="text">
+          <span
+            data-testid={`text_${tweet.id}`}
+            className="text"
+          >
             {tweetTextWithoutUrl}
           </span>
           {tweetUrl && (
             <a
+              data-testid={`tweet_link_${tweet.id}`}
               className="tweet-link"
               href={tweetUrl}
               target="_blank"

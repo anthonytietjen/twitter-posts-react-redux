@@ -7,7 +7,7 @@ import { tweetsSelector } from '../../selectors/searchSelectors';
 import { Card } from '../Card/Card';
 import { SearchResultRow } from '../SearchResultRow/SearchResultRow';
 import { StyledSearchResults } from './SearchResultsStyles';
-import { fetchTweetsByMoreUrl } from '../../api/api';
+import { fetchTweets } from '../../api/api';
 import { tweetsFetched } from '../../actions/searchActions';
 
 export const SearchResults = () => {
@@ -15,8 +15,8 @@ export const SearchResults = () => {
   const { searchTerms, tweets, nextResultId } = useSelector(tweetsSelector);
 
   const { data, isFetching, refetch } = useQuery(
-    'fetchTweetsByMoreUrl',
-    () => fetchTweetsByMoreUrl(searchTerms, nextResultId),
+    'fetchTweetsByLoadMore',
+    () => fetchTweets(searchTerms, nextResultId),
     {
       refetchOnWindowFocus: false,
       enabled: false,

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 import { StyledSearchBox } from './SearchBoxStyles';
-import { fetchTweetsBySearchTerms } from '../../api/api';
+import { fetchTweets } from '../../api/api';
 import { tweetsFetched } from '../../actions/searchActions';
 import { tweetsSelector } from '../../selectors/searchSelectors';
 
@@ -18,7 +18,7 @@ export const SearchBox = () => {
 
   const { data, isFetching, refetch } = useQuery(
     'fetchTweetsBySearchTerms',
-    () => fetchTweetsBySearchTerms(searchTerms),
+    () => fetchTweets(searchTerms),
     {
       refetchOnWindowFocus: false,
       enabled: false,

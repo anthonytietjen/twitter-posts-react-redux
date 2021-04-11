@@ -42,6 +42,14 @@ export const SearchBox = () => {
     }, debounceTimeout);
   };
 
+  const handleKeyUp = (e) => {
+    // Pressing Enter will not use debounce
+    clearTimeout(debounceTimer);
+    if (e.keyCode === 13) {
+      refetch();
+    }
+  };
+
   return (
     <StyledSearchBox
       data-testid="search_box_view"
@@ -59,6 +67,7 @@ export const SearchBox = () => {
         value={searchTerms}
         placeholder="Search by keyword"
         onChange={handleChange}
+        onKeyUp={handleKeyUp}
       />
     </StyledSearchBox>
   );

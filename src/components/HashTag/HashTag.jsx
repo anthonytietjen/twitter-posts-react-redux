@@ -7,8 +7,7 @@ export const HashTag = ({ text }) => {
   const { tweets } = useSelector(tweetsSelector);
   const dispatch = useDispatch();
 
-  const handleClick = (e) => {
-    e.preventDefault();
+  const handleClick = () => {
     dispatch(filterApplied(tweets, text));
   };
 

@@ -2,11 +2,11 @@ import { HashTag } from '../HashTag/HashTag';
 import { StyledSearchResultRow } from './SearchResultRowStyles';
 
 export const SearchResultRow = ({ tweet, isAlternateRow }) => {
-  const tweetUrl = tweet.text.indexOf('https://t.co/') > -1
-    ? tweet.text.substr(tweet.text.indexOf('https://t.co/'))
+  const tweetUrl = tweet.text.lastIndexOf('https://t.co/') > -1
+    ? tweet.text.substr(tweet.text.lastIndexOf('https://t.co/'))
     : '';
-  const tweetTextWithoutUrl = tweet.text.indexOf('https://t.co/') > -1
-    ? tweet.text.substr(0, tweet.text.indexOf(tweetUrl) - 1)
+  const tweetTextWithoutUrl = tweet.text.lastIndexOf('https://t.co/') > -1
+    ? tweet.text.substr(0, tweet.text.lastIndexOf(tweetUrl) - 1)
     : tweet.text;
 
   return (

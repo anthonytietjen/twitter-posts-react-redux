@@ -44,8 +44,8 @@ export const SearchBox = () => {
 
   const handleKeyUp = (e) => {
     // Pressing Enter will not use debounce
-    clearTimeout(debounceTimer);
     if (e.keyCode === 13) {
+      clearTimeout(debounceTimer);
       refetch();
     }
   };

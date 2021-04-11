@@ -1,4 +1,7 @@
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { filterApplied } from '../../actions/searchActions';
+import { tweetsSelector } from '../../selectors/searchSelectors';
 
 export const StyledHashTag = styled.div`
   border-radius: 16px;
@@ -18,11 +21,22 @@ export const StyledHashTag = styled.div`
   }
 `;
 
-export const HashTag = ({ text }) => (
-  <StyledHashTag
-    data-testid={`text_${text}`}
-  >
-    {'#'}
-    {text}
-  </StyledHashTag>
-);
+export const HashTag = ({ text }) => {
+  const { tweets } = useSelector(tweetsSelector);
+  const dispatch = useDispatch();
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(filterApplied(tweets, text));
+  };
+
+  return (
+    <StyledHashTag
+      data-testid={`text_${text}`}
+      onClick={handleClick}
+    >
+      {'#'}
+      {text}
+    </StyledHashTag>
+  );
+};

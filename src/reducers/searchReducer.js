@@ -1,4 +1,4 @@
-import { TWEETS_FETCHED } from '../actionTypes/actionTypes';
+import { FILTER_APPLIED, TWEETS_FETCHED } from '../actionTypes/actionTypes';
 
 const initialState = {
   searchTerms: '',
@@ -14,6 +14,11 @@ export const searchReducer = (state = initialState, action) => {
         searchTerms: action.searchTerms,
         tweets: action.tweets,
         nextResultId: action.nextResultId,
+      };
+    case FILTER_APPLIED:
+      return {
+        ...state,
+        tweets: action.tweets,
       };
     default:
       return { ...state };

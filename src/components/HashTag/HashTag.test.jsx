@@ -9,6 +9,7 @@ test('renders HashTag component', () => {
       <HashTag text="HelloWorld" />
     </Provider>
   );
+
   const hashTag = screen.getByTestId('text_HelloWorld');
   expect(hashTag).toBeInTheDocument();
   expect(hashTag.innerHTML).toEqual("#HelloWorld");

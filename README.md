@@ -1,6 +1,8 @@
 # Science 37 Take Home 
 
-## Running Locally
+This project was boostrapped from `Create React App`. As a result, the webpack config is not exposes. To be able to modify webpack config properties you either need to `npm run eject` or use a library like `craco` or `react-app-rewired` that doesn't require ejecting.
+
+## Run Locally
 
 ```bash
 npm install
@@ -8,8 +10,14 @@ npm start
 ```
 
 ## Unit Tests
+I created tests for several (but not all) of the components. The test for a given component is located in the same folder as the component.
 ```bash
 npm test
+```
+
+## Build
+```bash
+npm run build
 ```
 
 ## Proxy Server

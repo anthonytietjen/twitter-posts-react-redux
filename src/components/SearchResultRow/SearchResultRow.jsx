@@ -4,8 +4,10 @@ import { StyledSearchResultRow } from './SearchResultRowStyles';
 export const SearchResultRow = ({ tweet, isAlternateRow }) => {
   const tweetUrl = tweet.text.indexOf('https://t.co/') > -1
     ? tweet.text.substr(tweet.text.indexOf('https://t.co/'))
+    : '';
+  const tweetTextWithoutUrl = tweet.text.indexOf('https://t.co/') > -1
+    ? tweet.text.substr(0, tweet.text.indexOf(tweetUrl) - 1)
     : tweet.text;
-  const tweetTextWithoutUrl = tweet.text.substr(0, tweet.text.indexOf(tweetUrl) - 1);
 
   return (
     <StyledSearchResultRow
@@ -35,12 +37,15 @@ export const SearchResultRow = ({ tweet, isAlternateRow }) => {
           <span className="text">
             {tweetTextWithoutUrl}
           </span>
-          <a
-            className="tweet-link"
-            href={tweetUrl}
-          >
-            {tweetUrl}
-          </a>
+          {tweetUrl && (
+            <a
+              className="tweet-link"
+              href={tweetUrl}
+              target="_blank"
+            >
+              {tweetUrl}
+            </a>
+          )}
         </div>
         {tweet.entities.hashtags.length > 0 && (
           <div className="hashtags-container">

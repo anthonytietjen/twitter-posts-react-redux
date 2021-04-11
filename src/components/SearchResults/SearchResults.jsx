@@ -54,20 +54,23 @@ export const SearchResults = () => {
             />
           ))}
         </div>
-        <div className="results-footer">
-          {!isFetching && (
-            <a
-              data-testid="link_load_more"
-              href="#/"
-              onClick={handleLoadMore}
-            >
-              Load More
-            </a>
-          )}
-          {isFetching && (
-            <FontAwesomeIcon icon={faCircleNotch} spin />
-          )}
-        </div>
+
+        {nextResultId && (
+          <div className="results-footer">
+            {!isFetching && (
+              <a
+                data-testid="link_load_more"
+                href="#/"
+                onClick={handleLoadMore}
+              >
+                Load More
+              </a>
+            )}
+            {isFetching && (
+              <FontAwesomeIcon icon={faCircleNotch} spin />
+            )}
+          </div>
+        )}
       </Card>
     </StyledSearchResults>
   );

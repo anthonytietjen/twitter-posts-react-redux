@@ -6,24 +6,30 @@ import configureStore from 'redux-mock-store';
 
 const mockStore = configureStore([]);
 
-const store = mockStore({
-  search: {
-    searchTerms: 'hello'
-  }
-})
+describe('SearchBox', () => {
+  let store;
+  let queryClient;
 
-test('renders SearchBox component', () => {
-  const queryClient = new QueryClient();
+  beforeEach(() => {
+    store = mockStore({
+      search: {
+        searchTerms: 'hello'
+      }
+    });
+    queryClient = new QueryClient();
+  })
 
-  render(
-    <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
-        <SearchBox />
-      </QueryClientProvider>
-    </Provider>
-  );
+  it('renders the component with searchTerms provided by redux store', () => {
+    render(
+      <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
+          <SearchBox />
+        </QueryClientProvider>
+      </Provider>
+    );
 
-  const inputSearchTerms = screen.getByTestId('input_search_terms');
-  expect(inputSearchTerms).toBeInTheDocument();
-  expect(inputSearchTerms.value).toEqual('hello');
+    const inputSearchTerms = screen.getByTestId('input_search_terms');
+    expect(inputSearchTerms).toBeInTheDocument();
+    expect(inputSearchTerms.value).toEqual('hello');
+  });
 });

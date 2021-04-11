@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 import { StyledSearchBox } from './SearchBoxStyles';
-import { fetchTweets } from '../../api/api';
+import { fetchTweetsBySearchTerms } from '../../api/api';
 import { tweetsFetched } from '../../actions/searchActions';
 
 const debounceTimeout = 1000; // milliseconds
@@ -15,8 +15,8 @@ export const SearchBox = () => {
   const [searchTerms, setSearchTerms] = useState('');
 
   const { data, isFetching, refetch } = useQuery(
-    'fetchTweets',
-    () => fetchTweets(searchTerms),
+    'fetchTweetsBySearchTerms',
+    () => fetchTweetsBySearchTerms(searchTerms),
     {
       refetchOnWindowFocus: false,
       enabled: false,
@@ -25,7 +25,8 @@ export const SearchBox = () => {
 
   useEffect(() => {
     if (data) {
-      dispatch(tweetsFetched(data));
+      const nextResultId = data.search_metadata && data.search_metadata.next_results ? data.search_metadata.next_results.replace('?max_id=', '').split('&')[0] : '';
+      dispatch(tweetsFetched(searchTerms, data.statuses, nextResultId));
     }
   }, [data]);
 

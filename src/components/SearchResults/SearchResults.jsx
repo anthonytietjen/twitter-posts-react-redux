@@ -1,15 +1,44 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useQuery } from 'react-query';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 import { tweetsSelector } from '../../selectors/searchSelectors';
 import { Card } from '../Card/Card';
 import { SearchResultRow } from '../SearchResultRow/SearchResultRow';
 import { StyledSearchResults } from './SearchResultsStyles';
+import { fetchTweetsByMoreUrl } from '../../api/api';
+import { tweetsFetched } from '../../actions/searchActions';
 
 export const SearchResults = () => {
-  const { tweets } = useSelector(tweetsSelector);
+  const dispatch = useDispatch();
+  const { searchTerms, tweets, nextResultId } = useSelector(tweetsSelector);
+
+  const { data, isFetching, refetch } = useQuery(
+    'fetchTweetsByMoreUrl',
+    () => fetchTweetsByMoreUrl(searchTerms, nextResultId),
+    {
+      refetchOnWindowFocus: false,
+      enabled: false,
+    },
+  );
+
+  useEffect(() => {
+    if (data) {
+      const tweetsNew = tweets.concat(data.statuses);
+      const nextResultIdNew = data.search_metadata && data.search_metadata.next_results ? data.search_metadata.next_results.replace('?max_id=', '').split('&')[0] : '';
+      dispatch(tweetsFetched(searchTerms, tweetsNew, nextResultIdNew));
+    }
+  }, [data]);
 
   if (tweets.length === 0) {
     return null;
   }
+
+  const handleLoadMore = (e) => {
+    e.preventDefault();
+    refetch();
+  };
 
   return (
     <StyledSearchResults
@@ -26,12 +55,18 @@ export const SearchResults = () => {
           ))}
         </div>
         <div className="results-footer">
-          <a
-            data-testid="link_load_more"
-            href="#/"
-          >
-            Load More
-          </a>
+          {!isFetching && (
+            <a
+              data-testid="link_load_more"
+              href="#/"
+              onClick={handleLoadMore}
+            >
+              Load More
+            </a>
+          )}
+          {isFetching && (
+            <FontAwesomeIcon icon={faCircleNotch} spin />
+          )}
         </div>
       </Card>
     </StyledSearchResults>

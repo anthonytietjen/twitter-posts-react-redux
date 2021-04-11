@@ -4,9 +4,10 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { SearchBox } from './SearchBox';
 import { store } from '../../store/store';
 
-const queryClient = new QueryClient();
 
-test('renders SearchBox compoenent', () => {
+test('renders SearchBox component', () => {
+  const queryClient = new QueryClient();
+
   render(
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>

@@ -16,6 +16,10 @@ describe('SearchResultRow', () => {
         hashtags: [
           { text: "hashtag1" },
           { text: "hashtag2" }
+        ],
+        urls: [
+          { url: "https://t.co/1" },
+          { url: "https://t.co/2" }
         ]
       },
       user: {
@@ -24,7 +28,7 @@ describe('SearchResultRow', () => {
         profile_background_color: 'EECCDD',
         profile_image_url_https: 'https://t.co/1/image'
       },
-      text: 'text1 https://t.co/1'
+      text: 'text1 https://t.co/1 and https://t.co/2'
     }
 
     store = mockStore({
@@ -76,11 +80,7 @@ describe('SearchResultRow', () => {
 
     const text = screen.getByTestId('text_1');
     expect(text).toBeInTheDocument();
-    expect(text.innerHTML).toEqual("text1");
-
-    const tweetLink = screen.getByTestId('tweet_link_1');
-    expect(tweetLink).toBeInTheDocument();
-    expect(tweetLink.innerHTML).toEqual("https://t.co/1");
+    expect(text.innerHTML).toEqual(`text1 <a target="_blank" href="https://t.co/1">https://t.co/1</a> and <a target="_blank" href="https://t.co/2">https://t.co/2</a>`);
 
     const hashTag1 = screen.getByTestId('text_hashtag1');
     expect(hashTag1).toBeInTheDocument();

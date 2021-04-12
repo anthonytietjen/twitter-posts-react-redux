@@ -47,7 +47,7 @@ export const StyledSearchResultRow = styled.div`
         margin-right: 10px;
       }
 
-      a.tweet-link{
+      a{
         color: #3C7DB7;
       }
     }

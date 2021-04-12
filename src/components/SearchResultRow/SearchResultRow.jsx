@@ -1,15 +1,9 @@
 import { memo } from 'react';
 import { HashTag } from '../HashTag/HashTag';
+import { ProcessedText } from '../ProcessedText/ProcessedText';
 import { StyledSearchResultRow } from './SearchResultRowStyles';
 
 export const SearchResultRow = memo(({ tweet, isAlternateRow }) => {
-  const tweetUrl = tweet.text.lastIndexOf('https://t.co/') > -1
-    ? tweet.text.substr(tweet.text.lastIndexOf('https://t.co/'))
-    : '';
-  const tweetTextWithoutUrl = tweet.text.lastIndexOf('https://t.co/') > -1
-    ? tweet.text.substr(0, tweet.text.lastIndexOf(tweetUrl) - 1)
-    : tweet.text;
-
   return (
     <StyledSearchResultRow
       data-testid={`search_result_row_${tweet.id}`}
@@ -44,18 +38,8 @@ export const SearchResultRow = memo(({ tweet, isAlternateRow }) => {
             data-testid={`text_${tweet.id}`}
             className="text"
           >
-            {tweetTextWithoutUrl}
+            <ProcessedText text={tweet.text} />
           </span>
-          {tweetUrl && (
-            <a
-              data-testid={`tweet_link_${tweet.id}`}
-              className="tweet-link"
-              href={tweetUrl}
-              target="_blank"
-            >
-              {tweetUrl}
-            </a>
-          )}
         </div>
         {tweet.entities.hashtags.length > 0 && (
           <div className="hashtags-container">

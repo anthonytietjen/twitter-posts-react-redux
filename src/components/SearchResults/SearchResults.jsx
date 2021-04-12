@@ -25,9 +25,7 @@ export const SearchResults = memo(() => {
 
   useEffect(() => {
     if (data) {
-      const tweetsNew = tweets.concat(data.statuses);
-      const nextResultIdNew = data.search_metadata && data.search_metadata.next_results ? data.search_metadata.next_results.replace('?max_id=', '').split('&')[0] : '';
-      dispatch(tweetsFetched(searchTerms, tweetsNew, nextResultIdNew));
+      dispatch(tweetsFetched(searchTerms, tweets.concat(data.statuses), data.search_metadata));
     }
   }, [data]);
 

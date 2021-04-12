@@ -27,8 +27,7 @@ export const SearchBox = memo(() => {
 
   useEffect(() => {
     if (data) {
-      const nextResultId = data.search_metadata && data.search_metadata.next_results ? data.search_metadata.next_results.replace('?max_id=', '').split('&')[0] : '';
-      dispatch(tweetsFetched(searchTerms, data.statuses, nextResultId));
+      dispatch(tweetsFetched(searchTerms, data.statuses, data.search_metadata));
     }
   }, [data]);
 

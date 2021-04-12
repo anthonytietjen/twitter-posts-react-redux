@@ -5,11 +5,16 @@
 // https://developer.twitter.com/en/docs/twitter-api/v1/tweets/search/api-reference/get-search-tweets
 
 GET https://api.twitter.com/1.1/search/tweets.json?q=tweet&result_type=popular&count=5
-Authorization: Bearer {{$dotenv BEARER_TOKEN}}
+Authorization: Bearer {{$dotenv REACT_APP_TWITTER_API_TOKEN}}
+
+###
+
+GET https://api.twitter.com/1.1/search/tweets.json?q=tweet&result_type=popular&count=5&max_id=1380934113360809989
+Authorization: Bearer {{$dotenv REACT_APP_TWITTER_API_TOKEN}}
 
 ###
 
 GET https://api.twitter.com/1.1/search/tweets.json?q=asdf&result_type=popular&count=5
-Authorization: Bearer {{$dotenv BEARER_TOKEN}}
+Authorization: Bearer {{$dotenv REACT_APP_TWITTER_API_TOKEN}}
 
 

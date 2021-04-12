@@ -4,7 +4,7 @@ import { maxWidth } from '../../utils/utils';
 export const StyledSearchPage = styled.div`
   padding: 30px 0 60px 0;
 
-  h1{
+  h1 {
     font-size: 1em; 
   }
 
@@ -12,7 +12,7 @@ export const StyledSearchPage = styled.div`
     max-width: ${maxWidth}px;
     margin: auto; 
 
-    h1{
+    h1 {
       margin: 0 0 10px 0; 
     }
   }
@@ -23,22 +23,22 @@ export const StyledSearchPage = styled.div`
     }
   }
 
-  .desktop-view{
+  .desktop-view {
     display: flex;
     flex-direction: row;
 
-    .left-column{
+    .left-column {
       flex-direction: column;
       margin-right: 20px;
       flex: 1;
     }
 
-    .right-column{
+    .right-column {
       width: 250px;
     }
   }
 
-  .mobile-view{
+  .mobile-view {
     display: flex;
     flex-direction: column;
   }

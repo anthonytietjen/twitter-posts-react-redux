@@ -5,7 +5,6 @@ export const StyledSearchResultRow = styled.div`
   flex-direction: row;
   background-color: #FFF;
   
-
   &.alternate-background{
     background-color: #F8F9F9;
   }
@@ -53,7 +52,7 @@ export const StyledSearchResultRow = styled.div`
     }
 
     .hashtags-container{
-      
+      padding-top: 2px
     }
   }
 `;

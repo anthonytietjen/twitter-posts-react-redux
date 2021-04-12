@@ -9,10 +9,10 @@ export const StyledSearchBox = styled.div`
     padding: 0 15px;
   }
 
-  .search-icon-contaner{
+  .search-icon-contaner {
     position:relative;
 
-    svg{
+    svg {
       position:absolute;
       top: 14px;
       left: 12px;

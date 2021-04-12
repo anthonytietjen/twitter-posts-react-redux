@@ -13,7 +13,7 @@ export const StyledHashTag = styled.div`
   margin-right: 10px;
   margin-bottom: 10px;
 
-  :hover{
+  :hover {
     opacity: .8;
   }
 `;

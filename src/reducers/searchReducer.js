@@ -1,4 +1,7 @@
-import { FILTER_APPLIED, TWEETS_FETCHED } from '../actionTypes/actionTypes';
+import {
+  FILTER_APPLIED,
+  TWEETS_FETCHED,
+} from '../actionTypes/actionTypes';
 
 const initialState = {
   searchTerms: '',

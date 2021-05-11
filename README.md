@@ -2,8 +2,6 @@
 
 **Technologies**: React, Redux, React-Query, Styled-Components
 
-**Demo Site**: https://anthonytietjen-tweetfeed.vercel.app
-
 ## Run Locally
 
 1. Place your Twitter bearer token in a file called `.env` in the project root. This file is ignored from source control. Use the format below.

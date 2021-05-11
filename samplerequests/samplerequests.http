@@ -1,22 +1,22 @@
 // To run these sample requests: 
 // 1. Install the "humao.rest-client" plugin for Visual Studio Code
-// 2. Create a file called ".env" in this folder with the contents of REACT_APP_TWITTER_API_TOKEN=%YOUR_TOKEN_HERE%
+// 2. Create a file called ".env" in this folder with the contents of TWITTER_API_TOKEN=%YOUR_TOKEN_HERE%
 // 3. Open this file with Visual Studio Code and click "Send Request" above any of the requests below
 
 // Twitter API reference:
 // https://developer.twitter.com/en/docs/twitter-api/v1/tweets/search/api-reference/get-search-tweets
 
 GET https://api.twitter.com/1.1/search/tweets.json?q=tweet&result_type=popular&count=5
-Authorization: Bearer {{$dotenv REACT_APP_TWITTER_API_TOKEN}}
+Authorization: Bearer {{$dotenv TWITTER_API_TOKEN}}
 
 ###
 
 GET https://api.twitter.com/1.1/search/tweets.json?q=tweet&result_type=popular&count=5&max_id=1380934113360809989
-Authorization: Bearer {{$dotenv REACT_APP_TWITTER_API_TOKEN}}
+Authorization: Bearer {{$dotenv TWITTER_API_TOKEN}}
 
 ###
 
 GET https://api.twitter.com/1.1/search/tweets.json?q=asdf&result_type=popular&count=5
-Authorization: Bearer {{$dotenv REACT_APP_TWITTER_API_TOKEN}}
+Authorization: Bearer {{$dotenv TWITTER_API_TOKEN}}
 
 

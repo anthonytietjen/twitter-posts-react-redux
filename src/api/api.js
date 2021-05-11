@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const twitterApiTweetsUrl = '/twitterapi/1.1/search/tweets.json';
+const twitterApiTweetsUrl = '/api/';
 
 export const fetchTweets = async (searchTerms, nextResultId) => {
   // If empty sarchTerms, return empty results

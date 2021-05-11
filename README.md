@@ -7,10 +7,10 @@
 1. Place your Twitter bearer token in a file called `.env` in the project root. This file is ignored from source control. Use the format below.
 
 ```
-REACT_APP_TWITTER_API_TOKEN=%YOUR_TOKEN_HERE%
+TWITTER_API_TOKEN=%YOUR_TOKEN_HERE%
 ```
 
-2. Execute `npm install` and `npm start`. (Also see: [Proxy Server and Bearer Token](#proxy-server-and-bearer-token).)
+2. Execute `npm install` and `npm run dev`. (Also see: [Proxy Server and Bearer Token](#proxy-server-and-bearer-token).)
 
 ## Unit Tests
 
@@ -28,9 +28,9 @@ npm run build
 
 ## Proxy Server and Bearer Token
 
-The file `/src/setupProxy.js` contains a proxy server for proxying traffic to twitter along with the bearer token. The code in `/src/setupProxy.js` automatically gets started along with the react app when executing `npm start` due to Create React App's built-in configuration.
+The file `/server.js` proxies traffic to twitter along with the bearer token. The code in `/server.js` automatically gets started along with the react app when executing `npm run dev`.
 
-The value of `REACT_APP_TWITTER_API_TOKEN` from the `.env` file gets added to the Authorization header in `/src/setupProxy.js`.
+The value of `TWITTER_API_TOKEN` from the `.env` file gets added to the Authorization header in `/src/server.js`.
 
 If you are watching the browser's network traffic, you won't see the Authorization header in the request because that header gets added by the proxy. You would have to watch Node's network traffic to see the Authorization header.
 
